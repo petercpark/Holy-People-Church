@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holy People Church</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav>
+        <a href="/index.html#" id="logo">
+          <img src="/images/leafbowltransparent.png" alt="Holy People Church" />
+          <h1>
+            Holy People<br />
+            Church
+          </h1>
+        </a>
+        <ul class="navlinks">
+          <li class="navlink"><a href="/index.html#">Home</a></li>
+          <li class="navlink" id="navsermon">
+            <a href="#"
+              >주일 <span style="display: inline-block;">설교</span></a
+            >
+          </li>
+          <li class="navlink"><a href="#foot">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="sermon-container">
+      <div class="sermon-media">
+        <img src="/images/playbutton.svg" alt="Play" class="play-button" />
+        <h2>이번 주 <span style="display: inline-block;">설교</span></h2>
+        <h3 class="date"></h3>
+        <h3 class="current-verse">Galations 3:3</h3>
+        <a href="/sermons/2020_08_09.mp3" class="download-this-week" download>
+          <img src="/images/downloadbutton.svg" alt="Downlaod" />
+        </a>
+      </div>
+      <img src="/images/leafbowltransparent.png" alt="" class="sermon-img" />
+      <div class="sermon-bg"><img src="/images/flowybg2.svg" alt="" /></div>
+    </div>
+
+    <div class="sermon-archive">
+      <div class="sermon-list">
+        <div class="sermon-archive-title">
+          지난 설교
+        </div>
+      </div>
+    </div>
+
+    <span id="foot"></span>
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer-links">
+          Links <br />
+          <a href="https://forms.gle/BXphp5tfqZRe2ZbQ7" target="_blank"
+            >Contact Us</a
+          >
+        </div>
+        <div class="footer-address">
+          Holy People Church <br />
+
+          17907 Martha Pl, Cerritos CA 90703<br />
+
+          TEL : 714-860-8367<br />
+
+          Email:
+          <a href="mailto:info@holypeoplechurch.org"
+            >info@holypeoplechurch.org</a
+          >
+        </div>
+        <div class="copyright">© 2020 Copyright - Holy People Church</div>
+      </div>
+    </div>
+
+    <script src="/scripts/date.js"></script>
+    <!-- <script src="/scripts/archive.js"></script> -->
+    <!-- <script src="/scripts/playbutton.js"></script> -->
+  </body>
+</html>

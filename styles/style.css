@@ -1,0 +1,961 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: #303030;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+li {
+  font-size: 2rem;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  background-color: transparent;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: fixed;
+}
+
+nav #logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0.25;
+      -ms-flex: 0.25;
+          flex: 0.25;
+}
+
+@media (max-width: 599px) {
+  nav #logo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+@media (min-width: 600px) {
+  nav #logo h1 {
+    display: none;
+  }
+}
+
+nav #logo img {
+  padding: 2rem 2rem;
+  height: 10vh;
+}
+
+@media (max-width: 599px) {
+  nav .nav-links {
+    background-color: white;
+  }
+  nav ul {
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    height: 25vh;
+    background-color: transparent;
+    text-align: center;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+    background-color: white;
+    color: #303030;
+  }
+  nav ul #navsermon {
+    background-color: #3dca86;
+    color: white;
+    padding: 1rem 0.5rem;
+  }
+  nav ul li {
+    width: 30vw;
+    opacity: 0;
+    -webkit-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  nav .burger {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 2rem 2rem;
+  }
+  nav .burger div {
+    -webkit-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+    width: 25px;
+    height: 2px;
+    margin: 3px;
+    background-color: #303030;
+  }
+}
+
+nav .nav-active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+nav .nav-active li {
+  opacity: 1;
+}
+
+nav .toggle .line1 {
+  -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+          transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+nav .toggle .line2 {
+  opacity: 0;
+}
+
+nav .toggle .line3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -6px);
+          transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (min-width: 600px) {
+  nav {
+    width: 80%;
+    margin: auto;
+    min-height: 1vh;
+    padding: 1rem 0rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: static;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+  }
+  nav ul #navsermon {
+    background-color: #3dca86;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    color: white;
+  }
+  nav ul li {
+    width: auto;
+  }
+}
+
+@media (min-width: 600px) and (min-width: 1200px) {
+  nav #logo {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+  nav #logo h1 {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+  nav #logo img {
+    padding: 0.5rem 2rem;
+  }
+  nav .burger {
+    display: none;
+  }
+}
+
+.footer-container {
+  display: block;
+  background-color: #303030;
+  color: white;
+}
+
+.footer-container .footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 1fr 20%;
+      grid-template-columns: 20% 1fr 20%;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.footer-container .footer a {
+  color: #3dca86;
+}
+
+.footer-container .footer .footer-links {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  padding: 2rem;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.footer-container .footer .footer-address {
+  padding: 2rem;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.footer-container .footer .copyright {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  grid-row: auto;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (min-width: 600px) {
+  .footer-container .footer {
+    -ms-grid-columns: 20% (1fr)[3] 20%;
+        grid-template-columns: 20% repeat(3, 1fr) 20%;
+    text-align: left;
+  }
+  .footer-container .footer .footer-links {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+  }
+  .footer-container .footer .footer-address {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4/5;
+    -ms-grid-column-align: right;
+        justify-self: right;
+  }
+  .footer-container .footer .copyright {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 3;
+    grid-column: 2/5;
+  }
+}
+
+.home {
+  background-color: white;
+}
+
+.page {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  -ms-grid-columns: 10% (1fr)[3] 10%;
+      grid-template-columns: 10% repeat(3, 1fr) 10%;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+}
+
+.page .welcome {
+  z-index: 1;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 150%;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.page .welcome .current-verse {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column-align: left;
+      justify-self: left;
+}
+
+@media (max-width: 599px) {
+  .page .welcome {
+    height: 125%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page .welcome {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+  }
+}
+
+@media (min-width: 900px) {
+  .page .welcome .current-verse {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    grid-column: 3/5;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+}
+
+.page .welcome h1 {
+  font-weight: 550;
+  font-size: 5rem;
+}
+
+.page .welcome h3 {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.page .welcome img {
+  max-height: 20vh;
+}
+
+.page .welcome button {
+  cursor: pointer;
+  border-style: none;
+  background-color: #3dca86;
+  padding: 1.5rem;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.page .leavesbg {
+  position: relative;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-column: 3/6;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  grid-row: 1/6;
+}
+
+.page .leavesbg .leaves {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .page .leavesbg .leaves {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    max-height: 100vh;
+    display: block;
+  }
+}
+
+.page .leavesbg .homebg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+}
+
+@media (min-width: 1200px) {
+  .page .leavesbg .homebg {
+    height: auto;
+    width: 75vw;
+  }
+}
+
+.introduction {
+  width: 100vw;
+  margin: auto;
+  min-height: 30vh;
+  z-index: 99;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 1fr 10%;
+      grid-template-columns: 10% 1fr 10%;
+  font-size: 2rem;
+  background-color: white;
+  border-top: 1rem solid #3dca86;
+  border-bottom: 1rem solid #3dca86;
+}
+
+.introduction .intro-text {
+  padding: 2rem;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  color: #303030;
+  display: none;
+  font-weight: 300;
+}
+
+.introduction .intro-text-active {
+  display: block;
+}
+
+.introduction .button-back {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+}
+
+.introduction .button-forward {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+}
+
+.introduction button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  color: #3dca86;
+  opacity: 0.75;
+  font-size: 4rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: white;
+}
+
+.introduction button:hover {
+  opacity: 1;
+}
+
+.introduction .intro-indicators {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  justify-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 0rem;
+}
+
+.introduction .intro-indicators .indicator-dot {
+  background-color: #3dca86;
+  opacity: 50%;
+  height: 1.5vh;
+  width: 1.5vh;
+  margin: 0rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.introduction .intro-indicators .indicator-dot:hover {
+  opacity: 0.9;
+}
+
+.introduction .intro-indicators .dot-active {
+  opacity: 0.9 !important;
+}
+
+@media (min-width: 900px) {
+  .introduction .intro-text-active {
+    font-size: 3rem;
+  }
+  .introduction button {
+    font-size: 6rem;
+  }
+  .introduction .intro-indicators .indicator-dot {
+    margin: 0rem 2rem;
+  }
+}
+
+.about-pastor-container {
+  margin: 4rem 0rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.about-pastor-container .pastor-face {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  width: 50vw;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-bottom: 2rem;
+}
+
+.about-pastor-container .about-text {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  border: 1px solid #3dca86;
+  position: relative;
+  background-color: white;
+}
+
+.about-pastor-container .about-text .about-text-content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  padding: 2rem 2rem;
+}
+
+.about-pastor-container .about-text .about-text-content h1 {
+  font-size: 3rem;
+  letter-spacing: 2rem;
+  text-align: center;
+}
+
+.about-pastor-container .about-text .about-text-content p {
+  font-size: 1.5rem;
+  line-height: 4rem;
+  padding-top: 2rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.about-pastor-container .about-text .pastor-leaves {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50vh;
+  z-index: -1;
+}
+
+@media (min-width: 900px) {
+  .about-pastor-container .pastor-face {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    margin-bottom: 0;
+  }
+  .about-pastor-container .about-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    background-color: transparent;
+  }
+  .about-pastor-container .about-text .about-text-content {
+    padding: 2rem;
+    background-color: white;
+  }
+  .about-pastor-container .about-text .about-text-content p {
+    font-size: 2rem;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-pastor-container {
+    -ms-grid-columns: 10% auto 1fr 10%;
+        grid-template-columns: 10% auto 1fr 10%;
+  }
+  .about-pastor-container .pastor-face {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    width: 20vw;
+  }
+  .about-pastor-container .about-text {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-column: 3/4;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+  .about-pastor-container .about-text .about-text-content {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+  }
+}
+
+.sermon-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% (1fr)[2] 10%;
+      grid-template-columns: 10% repeat(2, 1fr) 10%;
+  -ms-grid-rows: 0.25fr 1fr 1fr;
+      grid-template-rows: 0.25fr 1fr 1fr;
+  height: 80vh;
+  -ms-grid-row-align: center;
+      align-self: center;
+  overflow: hidden;
+}
+
+.sermon-container .sermon-bg {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  grid-row: 1/5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  position: relative;
+}
+
+.sermon-container .sermon-bg img {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+}
+
+.sermon-media {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
+  line-height: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sermon-media .play-button {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  padding-right: 2rem;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.sermon-media h2 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.sermon-media h3 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.sermon-media .current-verse {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-column: 2/5;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column-align: left;
+      justify-self: left;
+}
+
+.sermon-media .download-this-week {
+  max-height: 3rem;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  padding: 0rem 2rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sermon-media .download-this-week img {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.sermon-img {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  height: 20vh;
+}
+
+.sermon-archive {
+  width: 100vw;
+  position: relative;
+  top: -1px;
+  background-color: #c5efdb;
+}
+
+.sermon-archive .sermon-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: 0% 1fr 0%;
+      grid-template-columns: 0% 1fr 0%;
+  padding: 10vh 0vh;
+  line-height: 10rem;
+}
+
+.sermon-archive .sermon-list .sermon-archive-title {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #303030;
+  background-color: transparent;
+}
+
+.sermon-archive .sermon-list .sermon-audio {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr 1fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sermon-archive .sermon-list .sermon-audio .sermon-verse {
+  padding: 0rem 2rem;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  line-height: 2.5rem;
+}
+
+.sermon-archive .sermon-list .sermon-audio h1 {
+  font-weight: 500;
+}
+
+.sermon-archive .sermon-list .sermon-audio img {
+  padding: 0rem 2rem;
+  z-index: 2;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .sermon-container {
+    height: 110vh;
+  }
+  .sermon-media {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .sermon-media h2 {
+    font-size: 4rem;
+    min-width: 230px;
+  }
+  .sermon-media h3 {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+  }
+  .sermon-media .current-verse {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 2;
+    grid-column: 3/5;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+  .sermon-media .download-this-week {
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+    grid-column: 4/5;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+  }
+  .sermon-img {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-column: 3/4;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    height: 50vh;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .sermon-archive .sermon-list {
+    -ms-grid-columns: 10% 1fr 10%;
+        grid-template-columns: 10% 1fr 10%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

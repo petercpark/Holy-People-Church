@@ -1,0 +1,230 @@
+$dark: #303030;
+$green: #3dca86;
+$light-green: #c5efdb;
+@import "responsive";
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $dark;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+li {
+  font-size: 2rem;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  background-color: transparent;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  position: fixed;
+
+  #logo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex: 0.25;
+
+    @include for-phone-only {
+      flex: 1;
+    }
+
+    h1 {
+      @include for-tablet-portrait-up {
+        display: none;
+      }
+    }
+    img {
+      padding: 2rem 2rem;
+      height: 10vh;
+    }
+  }
+
+  @include for-phone-only {
+    .nav-links {
+      background-color: white;
+    }
+    ul {
+      position: absolute;
+      top: 7vh;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 25vh;
+      background-color: transparent;
+      text-align: center;
+      transform: translateX(100%);
+      transition: 0.3s ease-in;
+      background-color: white;
+      color: $dark;
+
+      #navsermon {
+        background-color: $green;
+        color: white;
+        padding: 1rem 0.5rem;
+      }
+
+      li {
+        width: 30vw;
+        opacity: 0;
+        transition: 0.3s ease-in;
+        align-self: center;
+      }
+    }
+
+    .burger {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 2rem;
+
+      div {
+        transition: 0.3s ease-in;
+        width: 25px;
+        height: 2px;
+        margin: 3px;
+        background-color: $dark;
+      }
+    }
+  }
+
+  .nav-active {
+    transform: translateX(0%);
+    li {
+      opacity: 1;
+    }
+  }
+
+  .toggle {
+    .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .line2 {
+      opacity: 0;
+    }
+    .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    width: 80%;
+    margin: auto;
+    min-height: 1vh;
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    ul {
+      display: flex;
+      position: static;
+      flex-direction: row;
+      justify-content: space-between;
+      flex: 1;
+      align-items: center;
+      height: auto;
+      #navsermon {
+        background-color: $green;
+        border-radius: 2rem;
+        padding: 1rem 2rem;
+        color: white;
+      }
+      li {
+        width: auto;
+      }
+    }
+    #logo {
+      @include for-desktop-up {
+        flex: 2;
+        h1 {
+          display: block;
+        }
+      }
+      img {
+        padding: 0.5rem 2rem;
+      }
+    }
+    .burger {
+      display: none;
+    }
+  }
+}
+//here is where nav ends
+.footer-container {
+  display: block;
+  background-color: $dark;
+  color: white;
+  .footer {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    font-size: 1.5rem;
+    text-align: center;
+    a {
+      color: $green;
+    }
+    .footer-links {
+      grid-column: 2/3;
+      padding: 2rem;
+      justify-self: center;
+      align-self: center;
+    }
+    .footer-address {
+      padding: 2rem;
+      grid-column: 2/3;
+      align-self: center;
+      justify-self: center;
+    }
+    .copyright {
+      grid-column: 2/3;
+      grid-row: auto;
+      font-size: 1rem;
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+}
+
+@include for-tablet-portrait-up {
+  .footer-container {
+    .footer {
+      grid-template-columns: 20% repeat(3, 1fr) 20%;
+      text-align: left;
+      .footer-links {
+        grid-column: 2/3;
+      }
+      .footer-address {
+        grid-column: 4/5;
+        justify-self: right;
+      }
+      .copyright {
+        grid-column: 2/5;
+      }
+    }
+  }
+}
+
+@import "home";
+@import "sermon";
