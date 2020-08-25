@@ -34,7 +34,7 @@ nav {
   z-index: 100;
   display: flex;
   width: 100vw;
-  position: fixed;
+  position: absolute;
 
   #logo {
     display: flex;
@@ -135,7 +135,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     left: 50%;
     transform: translateX(-50%);
 
