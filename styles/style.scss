@@ -33,7 +33,7 @@ nav {
   background-color: transparent;
   z-index: 100;
   display: flex;
-  width: 100%;
+  width: 100vw;
   position: fixed;
 
   #logo {
@@ -54,6 +54,7 @@ nav {
     img {
       padding: 2rem 2rem;
       height: 10vh;
+      width: auto;
     }
   }
 

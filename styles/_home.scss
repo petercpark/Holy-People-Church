@@ -25,6 +25,9 @@
       grid-row: 2/3;
       justify-self: left;
     }
+    .sermon-media {
+      padding: 0 !important;
+    }
 
     @include for-phone-only {
       height: 125%;
@@ -83,11 +86,12 @@
     .homebg {
       position: absolute;
       bottom: 0;
-      left: 0;
-      height: 100vh;
+      right: 0;
+      width: 75vw;
       @include for-desktop-up {
+        right: auto;
         height: auto;
-        width: 75vw;
+        left: 0;
       }
     }
   }
