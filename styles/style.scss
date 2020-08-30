@@ -47,13 +47,12 @@ nav {
     }
 
     h1 {
-      @include for-tablet-portrait-up {
-        display: none;
-      }
+      display: none;
     }
     img {
-      padding: 2rem 2rem;
-      height: 10vh;
+      margin: 2rem 0rem 2rem 2rem;
+
+      height: 5vh;
       width: auto;
     }
   }

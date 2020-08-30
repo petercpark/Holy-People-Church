@@ -59,15 +59,13 @@ nav #logo {
   }
 }
 
-@media (min-width: 600px) {
-  nav #logo h1 {
-    display: none;
-  }
+nav #logo h1 {
+  display: none;
 }
 
 nav #logo img {
-  padding: 2rem 2rem;
-  height: 10vh;
+  margin: 2rem 0rem 2rem 2rem;
+  height: 5vh;
   width: auto;
 }
 
@@ -634,7 +632,6 @@ nav .toggle .line3 {
   line-height: 4rem;
   padding-top: 2rem;
   font-weight: 300;
-  text-align: center;
 }
 
 .about-pastor-container .about-text .pastor-leaves {
