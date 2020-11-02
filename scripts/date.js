@@ -4,8 +4,16 @@ var thisSundayRaw = rawDate;
 
 //get current day of week as number from 0 to 6. 0 being sunday
 var currentDayOfWeek = rawDate.getDay();
+var isSundayMorning =
+  currentDayOfWeek == 0 && //check if sunday
+  rawDate.getHours() < 15; //then check if it is morning
 
-thisSundayRaw.setDate(thisSundayRaw.getDate() - currentDayOfWeek);
+if (isSundayMorning) {
+  thisSundayRaw.setDate(thisSundayRaw.getDate() - 7);
+} else {
+  thisSundayRaw.setDate(thisSundayRaw.getDate() - currentDayOfWeek);
+}
+console.log(isSundayMorning);
 
 var month = thisSundayRaw.getMonth() + 1; //months from 1-12
 var day = thisSundayRaw.getDate();
@@ -85,9 +93,7 @@ const makeArchive = async () => {
       const pastDay = pastSermonsRaw.getDate();
       const pastYear = pastSermonsRaw.getFullYear();
       const pastDates = pastMonth + "/" + pastDay + "/" + pastYear;
-      if (pastDates == "3/29/2020") {
-        continue;
-      }
+
       let pastSermonsPath =
         "/sermons/" +
         pastYear +
