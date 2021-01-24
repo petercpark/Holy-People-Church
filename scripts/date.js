@@ -1,46 +1,10 @@
-//find the current week's sunday's date.
-var rawDate = new Date();
-var thisSundayRaw = rawDate;
+let sermon;
+let bibleVerse = [];
+let verseDate = [];
 
-//get current day of week as number from 0 to 6. 0 being sunday
-var currentDayOfWeek = rawDate.getDay();
-var isSundayMorning =
-  currentDayOfWeek == 0 && //check if sunday
-  rawDate.getHours() < 15; //then check if it is morning
-
-if (isSundayMorning) {
-  thisSundayRaw.setDate(thisSundayRaw.getDate() - 7);
-} else {
-  thisSundayRaw.setDate(thisSundayRaw.getDate() - currentDayOfWeek);
-}
-console.log(isSundayMorning);
-
-var month = thisSundayRaw.getMonth() + 1; //months from 1-12
-var day = thisSundayRaw.getDate();
-var year = thisSundayRaw.getFullYear();
-
-var thisSunday = month + "/" + day + "/" + year;
-
-//insert the thisSunday date into the html
-var sermonDate = document.querySelector(".date");
-sermonDate.innerHTML = thisSunday;
-
-//current sermon link
-var sermon =
-  "/sermons/" +
-  year +
-  "_" +
-  ("0" + month).slice(-2) +
-  "_" +
-  ("0" + day).slice(-2) +
-  ".mp3";
-
-//parse csv file with all the bible verses
-var bibleVerse = [];
-var verseDate = [];
 //asyncronous function to get csv file with bible verses.
 async function getVerses() {
-  const response = await fetch("/sermons/bibleverses.csv");
+  const response = await fetch("/bibleverses.csv");
   const data = await response.text();
 
   const table = data.split("\n");
@@ -51,11 +15,7 @@ async function getVerses() {
     verseDate.push(column[1]);
   });
 }
-console.log(bibleVerse);
-
-// make big download button work
-var sermonDownload = document.querySelector(".download-this-week");
-sermonDownload.setAttribute("href", sermon);
+console.log(bibleVerse, verseDate);
 
 // big play button actually make it play.
 const playCurrent = () => {
@@ -74,34 +34,35 @@ const playCurrent = () => {
   });
 };
 
-playCurrent();
-
 //make the archive
 const makeArchive = async () => {
   const sermonList = document.querySelector(".sermon-list");
   const currentSermonVerse = document.querySelector(".current-verse");
-  let pastSermonsRaw = thisSundayRaw;
+
   await getVerses();
+  sermon = "./sermons/" + verseDate[0] + ".mp3";
 
-  currentSermonVerse.innerHTML = bibleVerse[0];
+  //insert the thisSunday date into the html
+  var sermonDate = document.querySelector(".date");
+  sermonDate.innerHTML = verseDate[0];
+  // make big download button work
+  var sermonDownload = document.querySelector(".download-this-week");
+  sermonDownload.setAttribute("href", sermon);
+  playCurrent(); // function from above plays the audio for this week.
+  currentSermonVerse.innerHTML = bibleVerse[0]; // set the verse of this week's verse to the first in the list
 
+  // create the list of past sermons
   if (sermonList) {
-    for (let i = 0; i > -1; i++) {
-      pastSermonsRaw.setDate(pastSermonsRaw.getDate() - 7);
+    verseDate.forEach((date, i) => {
+      // pastSermonsRaw.setDate(pastSermonsRaw.getDate() - 7);
 
-      const pastMonth = pastSermonsRaw.getMonth() + 1; //months from 1-12
-      const pastDay = pastSermonsRaw.getDate();
-      const pastYear = pastSermonsRaw.getFullYear();
-      const pastDates = pastMonth + "/" + pastDay + "/" + pastYear;
+      // const pastMonth = pastSermonsRaw.getMonth() + 1; //months from 1-12
+      // const pastDay = pastSermonsRaw.getDate();
+      // const pastYear = pastSermonsRaw.getFullYear();
+      // const pastDates = pastMonth + "/" + pastDay + "/" + pastYear;
 
       let pastSermonsPath =
-        "/sermons/" +
-        pastYear +
-        "_" +
-        ("0" + pastMonth).slice(-2) +
-        "_" +
-        ("0" + pastDay).slice(-2) +
-        ".mp3";
+        "/sermons/" + date + ".mp3";
 
       const sermonAudio = document.createElement("div");
       sermonAudio.classList.add("sermon-audio");
@@ -129,11 +90,11 @@ const makeArchive = async () => {
       //bible verse
       const verse = document.createElement("h1");
       verse.classList.add("sermon-verse");
-      verse.innerHTML = bibleVerse[i + 1];
+      verse.innerHTML = bibleVerse[i];
 
       //the date
-      const date = document.createElement("h1");
-      date.innerHTML = pastDates;
+      const dateElement = document.createElement("h1");
+      dateElement.innerHTML = date;
 
       //download button actually downloads sermon
       const playLink = document.createElement("a");
@@ -147,14 +108,11 @@ const makeArchive = async () => {
       download.setAttribute("src", "/images/downloadbutton.svg");
       download.setAttribute("alt", "Download");
 
-      sermonAudio.append(play, verse, date, playLink);
+      sermonAudio.append(play, verse, dateElement, playLink); //finally appends all of the nodes created above to make one of the rows of the archive table
       sermonList.append(sermonAudio);
 
-      if (pastDates == "1/5/2020") {
-        break;
-      }
-    }
+    });
   }
-};
+}
 
 makeArchive();
